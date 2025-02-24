@@ -1,0 +1,31 @@
+<h1>Gestión de Empleados</h1>
+
+<h2>Lista de Empleados</h2>
+<ul>
+  <li *ngFor="let empleado of empleados">
+    ID: {{ empleado.id }} - CUIT: {{ empleado.cuit }} - 
+    {{ empleado.nombre }} {{ empleado.apellido }} - {{ empleado.puesto }} - ${{ empleado.salario }}
+  </li>
+</ul>
+
+<h2>Agregar Nuevo Empleado</h2>
+<form (ngSubmit)="agregarEmpleado()" [formGroup]="empleadosForm!">
+  <label for="nombre">Nombre:</label>
+  <input id="nombre" type="text" formControlname="nombre" required />
+
+  <label for="apellido">Apellido:</label>
+  <input id="apellido" name="apellido" formControlname="apellido" required />
+
+  <label for="cuit">CUIT:</label>
+  <input id="cuit" name="cuit" formControlname="cuit" required />
+
+  <label for="puesto">Puesto:</label>
+  <input id="puesto" name="puesto" formControlname="puesto" required />
+
+  <label for="salario">Salario:</label>
+  <input id="salario" name="salario" type="number" formControlname="salario" required />
+
+  <button type="submit" [disabled]="!empleadoForm.valid">Agregar</button>
+</form>
+
+  
