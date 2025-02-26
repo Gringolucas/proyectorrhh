@@ -5,6 +5,9 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { HomeComponent } from './core/components/home/home.component';
 import { EmpleadoComponent } from './core/components/empleado-form/empleado-form.component';
 
+
+
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent, FooterComponent, HomeComponent, EmpleadoComponent],

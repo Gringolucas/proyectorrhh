@@ -1,31 +1,29 @@
 <h1>Gestión de Empleados</h1>
 
 <h2>Lista de Empleados</h2>
-<ul>
+<ul *ngIf="empleados && empleados.length > 0; else noEmpleados">
   <li *ngFor="let empleado of empleados">
     ID: {{ empleado.id }} - CUIT: {{ empleado.cuit }} - 
     {{ empleado.nombre }} {{ empleado.apellido }} - {{ empleado.puesto }} - ${{ empleado.salario }}
   </li>
 </ul>
 
-<h2>Agregar Nuevo Empleado</h2>
-<form (ngSubmit)="agregarEmpleado()" [formGroup]="empleadosForm!">
-  <label for="nombre">Nombre:</label>
-  <input id="nombre" type="text" formControlname="nombre" required />
+<ng-template #noEmpleados>
+  <p>No hay empleados disponibles.</p>
+</ng-template>
 
-  <label for="apellido">Apellido:</label>
-  <input id="apellido" name="apellido" formControlname="apellido" required />
-
-  <label for="cuit">CUIT:</label>
-  <input id="cuit" name="cuit" formControlname="cuit" required />
-
-  <label for="puesto">Puesto:</label>
-  <input id="puesto" name="puesto" formControlname="puesto" required />
-
-  <label for="salario">Salario:</label>
-  <input id="salario" name="salario" type="number" formControlname="salario" required />
-
-  <button type="submit" [disabled]="!empleadoForm.valid">Agregar</button>
+<form [formGroup]="empleadosForm" (ngSubmit)="cargar()">
+  <fieldset>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre">
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" formControlName="apellido">
+    <label for="cuit">Cuit:</label>
+    <input type="number" id="cuit" formControlName="cuit">
+    <label for="puesto">Puesto:</label>
+    <input type="text" id="puesto" formControlName="puesto">
+    <label for="salario">Salario:</label>
+    <input type="number" id="salario" formControlName="salario">
+  </fieldset>
+  <button type="submit">Cargar Empleado</button>
 </form>
-
-  
