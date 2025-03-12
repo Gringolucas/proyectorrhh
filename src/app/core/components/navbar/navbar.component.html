@@ -1,15 +1,9 @@
 <nav class="navbar">
-    <div class="container">
-      <a class="navbar-brand" href="#">RRHH System</a>
-      <button class="menu-toggle" (click)="toggleMenu()">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <ul [class.active]="menuAbierto" class="navbar-nav">
-        <li><a href="#" class="nav-link">Inicio</a></li>
-        <li><a href="#" class="nav-link">Empleados</a></li>
-        <li><a href="#" class="nav-link">Contacto</a></li>
-      </ul>
-    </div>
+  <h1>RRHH System</h1>
+  <div class="nav-links">
+    <a routerLink="/register-employee">Registrar Empleado</a>
+    <a routerLink="/employee-list">Lista de Empleados</a>
+    <a routerLink="/company-info">Datos de la Empresa</a>
+    <button class="logout-button">Cerrar Sesión</button>
+  </div>
 </nav>

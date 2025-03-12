@@ -1,0 +1,24 @@
+.auth-form {
+    max-width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.auth-form div {
+    margin-bottom: 10px;
+}
+.auth-form input {
+    width: 100%;
+    padding: 8px;
+}
+.auth-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.auth-form button:disabled {
+    background-color: #cccccc;
+}

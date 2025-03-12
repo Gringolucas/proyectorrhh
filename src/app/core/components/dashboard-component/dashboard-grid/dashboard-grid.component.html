@@ -1,0 +1,9 @@
+<div class="dashboard-grid">
+    <app-dashboard-card *ngFor="let card of cards"
+      [title]="card.title"
+      [description]="card.description"
+      [icon]="card.icon"
+      [route]="card.route">
+    </app-dashboard-card>
+</div>
+  

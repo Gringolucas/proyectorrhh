@@ -1,6 +1,8 @@
-<app-navbar/>
-<app-empleado/>
-<app-home/>
-<app-footer/> 
-
-<router-outlet/> 
+<ng-container *ngIf="!isLoggedIn">
+    <router-outlet></router-outlet> <!-- ✅ Solo muestra auth si no está autenticado -->
+  </ng-container>
+  
+  <ng-container *ngIf="isLoggedIn">
+    <app-navbar></app-navbar> <!-- ✅ Navbar solo cuando esté autenticado -->
+    <router-outlet></router-outlet> <!-- ✅ Renderiza las páginas después de login -->
+  </ng-container>
