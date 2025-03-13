@@ -1,5 +1,11 @@
 .dashboard-container {
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
+  text-align: center;
+  padding: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}

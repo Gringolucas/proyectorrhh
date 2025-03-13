@@ -1,35 +1,21 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './auth-pages.component.html',
   styleUrls: ['./auth-pages.component.css']
 })
-export class AuthPage {
-  authForm!: FormGroup; // El signi ! indica que se inicializara antes de usarse
-  isLogin = true; // Alternar entre Login y Registro
+export class AuthComponent {
+  constructor(private router: Router) {}
 
-  constructor(private fb: FormBuilder) {
-    this.createForm();
+  goToLogin() {
+    this.router.navigateByUrl('/auth/login'); // Redirige a Login
   }
 
-  createForm() {
-    this.authForm = this.fb.group({
-      name: ['', this.isLogin ? [] : [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
-  }
-
-  switchMode() {
-    this.isLogin = !this.isLogin;
-    this.createForm(); // Se recrea el formulario para reflejar cambios
-  }
-
-  onSubmit() {
-    console.log(this.isLogin ? 'Login Data:' : 'Register Data:', this.authForm.value);
+  goToRegister() {
+    this.router.navigateByUrl('/auth/register'); // Redirige a Registro
   }
 }

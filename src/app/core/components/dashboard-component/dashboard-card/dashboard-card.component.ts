@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-card',
@@ -12,4 +13,10 @@ export class DashboardCardComponent {
   @Input() description!: string;
   @Input() icon!: string;
   @Input() route!: string;
+
+  constructor(private router: Router) {}
+
+  navigate() {
+    this.router.navigate([this.route]);
+  }
 }

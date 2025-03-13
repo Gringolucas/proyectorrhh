@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common'; // ✅ Importamos NgIf
+import { NgIf } from '@angular/common'; // Importamos NgIf
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './core/components/navbar/navbar.component'; 
 

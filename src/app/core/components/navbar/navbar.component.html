@@ -1,9 +1,29 @@
 <nav class="navbar">
-  <h1>RRHH System</h1>
-  <div class="nav-links">
-    <a routerLink="/register-employee">Registrar Empleado</a>
-    <a routerLink="/employee-list">Lista de Empleados</a>
-    <a routerLink="/company-info">Datos de la Empresa</a>
-    <button class="logout-button">Cerrar Sesión</button>
+  <div class="navbar-left">
+    <a routerLink="/dashboard" class="navbar-brand">RRHH System</a>
+  </div>
+
+  <div class="navbar-center">
+    <ul class="navbar-links">
+      <li><a routerLink="/register-employee">Registrar Empleado</a></li>
+      <li><a routerLink="/employee-list">Lista de Empleados</a></li>
+      <li><a routerLink="/company-info">Datos de la Empresa</a></li>
+      <li><a routerLink="/settings">Configuración</a></li>
+      <li><a routerLink="/reports">Reportes</a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-right">
+    <div class="user-dropdown">
+      <button class="dropdown-toggle">{{ userEmail }} ▼</button>
+      <ul class="dropdown-menu">
+        <li><a routerLink="/profile">Perfil</a></li>
+        <li><button (click)="logout()">Cerrar Sesión</button></li>
+      </ul>
+    </div>
   </div>
 </nav>
+
+
+
+

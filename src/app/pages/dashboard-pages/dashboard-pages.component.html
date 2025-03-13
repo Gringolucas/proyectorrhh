@@ -1,5 +1,12 @@
 <div class="dashboard-container">
-    <app-dashboard-header></app-dashboard-header>
-    <app-dashboard-grid></app-dashboard-grid>
+    <h2>Panel de Control</h2>
+    <div class="dashboard-grid">
+      <app-dashboard-card title="Registrar Empleado" icon="👤" description="Añadir nuevo empleado" route="/register-employee"></app-dashboard-card>
+      <app-dashboard-card title="Lista de Empleados" icon="📋" description="Ver lista de empleados" route="/employee-list"></app-dashboard-card>
+      <app-dashboard-card title="Datos de la Empresa" icon="🏢" description="Ver información de la empresa" route="/company-info"></app-dashboard-card>
+      <app-dashboard-card title="Configuración" icon="⚙️" description="Configuraciones generales" route="/settings"></app-dashboard-card>
+      <app-dashboard-card title="Reportes" icon="📊" description="Ver reportes y estadísticas" route="/reports"></app-dashboard-card>
+    </div>
 </div>
+  
   
