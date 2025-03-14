@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-reports-pages',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './reports-pages.component.css'
 })
 export class ReportsPages {
+
+  constructor(private location: Location) {}
+
+  volverAtras() {
+    this.location.back();
+  }
 
 }
