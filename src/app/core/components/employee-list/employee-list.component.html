@@ -1,0 +1,26 @@
+<table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>CUIT</th>
+        <th>Puesto</th>
+        <th>Salario</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td><input [(ngModel)]="empleado.nombre"></td>
+        <td><input [(ngModel)]="empleado.apellido"></td>
+        <td><input [(ngModel)]="empleado.cuit"></td>
+        <td><input [(ngModel)]="empleado.puesto"></td>
+        <td><input [(ngModel)]="empleado.salario"></td>
+        <td>
+          <button (click)="editarEmpleado(empleado)">💾 Guardar</button>
+          <button (click)="eliminarEmpleado(empleado.id!)" *ngIf="empleado.id">🗑 Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  

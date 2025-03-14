@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
-import { EmpleadoComponent } from '../../../core/components/empleado-form/empleado-form.component';
+import { EmpleadoService } from '../../../core/services/empleado.service';
+import { EmployeeFormComponent } from '../../../core/components/employee-form/employee-form.component';
+
 
 @Component({
   selector: 'app-register-employee',
-  standalone: true,
   templateUrl: './register-employee.component.html',
   styleUrls: ['./register-employee.component.css'],
-  imports: [EmpleadoComponent],
+  imports: [EmployeeFormComponent]
 })
-export class RegisterEmployeePage { }
+export class RegisterEmployeePage {
+  constructor(private empleadoService: EmpleadoService) {}
+
+  registrarEmpleado(empleado: any) {
+    this.empleadoService.registrarEmpleado(empleado).subscribe(() => {
+      alert('Empleado registrado con éxito');
+    });
+  }
+}
+
 

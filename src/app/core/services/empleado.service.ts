@@ -1,45 +1,36 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Empleado } from '../models/empleado.model';
+import { Empleado } from '../models/empleado.model'; // Asegúrate de que la ruta sea correcta
+import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class EmpleadoService {
-  private empleados: Empleado[] = [
-    {
-      nombre: 'Juan', apellido: 'Pérez', cuit: '20304050607', puesto: 'Desarrollador', salario: 50000,
-      id: ''
-    },
-    {
-      nombre: 'María', apellido: 'López', cuit: '27304050608', puesto: 'Diseñadora', salario: 45000,
-      id: ''
-    },
-  ];
+  private empleados: Empleado[] = []; // ✅ Array en memoria
 
-  private empleadosSubject = new BehaviorSubject<Empleado[]>(this.empleados);
+  constructor() {}
 
-  obtenerEmpleados() {
-    return this.empleadosSubject.asObservable();
+  obtenerEmpleados(): Observable<Empleado[]> {
+    return of(this.empleados); // ✅ Retorna el array como observable
   }
 
-  agregarEmpleado(empleado: Empleado): void {
-    console.log('Agregando empleado:', empleado); // Debugging
-    this.empleados.push(empleado); //Agrega el nuevo empleado al array
-    this.empleadosSubject.next([...this.empleados]); //next lo utiliza para emitir un nuevo valor
-    // [...] (spread operator) crea una copia nueva del array en lugar de modificar el original.
-    // Esto es necesario porque Angular no detecta cambios en arrays mutados directamente.
-    console.log('Empleados después de agregar:', this.empleados); // Debugging
+  registrarEmpleado(empleado: Empleado): Observable<any> {
+    this.empleados.push(empleado);
+    return of({ message: 'Empleado registrado correctamente' }); // ✅ Simula respuesta
+  }
+
+  editarEmpleado(empleado: Empleado): Observable<any> {
+    const index = this.empleados.findIndex(e => e.id === empleado.id);
+    if (index !== -1) {
+      this.empleados[index] = empleado;
+    }
+    return of({ message: 'Empleado actualizado correctamente' });
+  }
+
+  eliminarEmpleado(id: string): Observable<any> {
+    this.empleados = this.empleados.filter(e => e.id !== id);
+    return of({ message: 'Empleado eliminado correctamente' });
   }
 }
 
-  // crearEmpleadoVacio(): Empleado {
-  //   return {
-  //   id: '',
-  //   nombre: '',
-  //   apellido: '',
-  //   cuit: '',
-  //   puesto: '',
-  //   salario: 0
-  //   };
-  // }
+

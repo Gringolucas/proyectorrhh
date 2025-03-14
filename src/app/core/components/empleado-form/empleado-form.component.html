@@ -1,12 +1,5 @@
 <h1>Gestión de Empleados</h1>
 
-<h2>Lista de Empleados</h2>
-<ul *ngIf="empleados && empleados.length > 0; else noEmpleados">
-  <li *ngFor="let empleado of empleados">
-    ID: {{ empleado.id }} - CUIT: {{ empleado.cuit }} - 
-    {{ empleado.nombre }} {{ empleado.apellido }} - {{ empleado.puesto }} - ${{ empleado.salario }}
-  </li>
-</ul>
 
 <ng-template #noEmpleados>
   <p>No hay empleados disponibles.</p>
