@@ -11,6 +11,7 @@ import { ReportsPages } from './pages/reports-pages/reports-pages.component';
 import { AuthGuard } from './core/guards/auth-guard';
 import { LoginComponent } from './core/components/auth/login/login.component';
 import { RegisterComponent } from './core/components/auth/register/register.component';
+import { EmployeeTrackingComponent } from './pages/employees-pages/employee-tracking/employee-tracking.component';
 
 export const routes: Routes = [
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
   // Pagina a Dashboard =>
   { path: 'dashboard', component: DashboardPages },
   { path: 'register-employee', component: RegisterEmployeePage },
+  { path: 'tracking-employee', component: EmployeeTrackingComponent },
   { path: 'employee-list', component: EmployeeListPage },
   { path: 'company-info', component: CompanyInfoPages , canActivate: [AuthGuard] },
   { path: 'settings', component: SettingsPages , canActivate: [AuthGuard] },

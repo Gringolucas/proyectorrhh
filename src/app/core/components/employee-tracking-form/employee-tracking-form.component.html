@@ -1,0 +1,32 @@
+<h2>📅 Registro de Datos Adicionales</h2>
+
+<form (submit)="registrarDatos()">
+  <label>Empleado:
+    <select [(ngModel)]="nuevoRegistro.empleadoId" required>
+      <option *ngFor="let empleado of empleados" [value]="empleado.id">{{ empleado.nombre }} {{ empleado.apellido }}</option>
+    </select>
+  </label>
+
+  <label>Fecha:
+    <input type="date" [(ngModel)]="nuevoRegistro.fecha" required />
+  </label>
+
+  <label>Días de Vacaciones:
+    <input type="number" [(ngModel)]="nuevoRegistro.diasVacaciones" />
+  </label>
+
+  <label>Faltas:
+    <input type="number" [(ngModel)]="nuevoRegistro.faltas" />
+  </label>
+
+  <label>Amonestaciones:
+    <input type="number" [(ngModel)]="nuevoRegistro.amonestaciones" />
+  </label>
+
+  <label>Horas Extras:
+    <input type="number" [(ngModel)]="nuevoRegistro.horasExtras" />
+  </label>
+
+  <button type="submit">Registrar Datos</button>
+</form>
+

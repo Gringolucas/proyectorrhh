@@ -1,15 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { EmployeeTrackingService } from '../../core/services/employee-tracking.service';
+import { NgFor } from '@angular/common';
+
 
 @Component({
   selector: 'app-reports-pages',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './reports-pages.component.html',
   styleUrl: './reports-pages.component.css'
 })
-export class ReportsPages {
+export class ReportsPages implements OnInit {
 
-  constructor(private location: Location) {}
+  registros: any = [];
+
+  constructor(private location: Location, private trackingService: EmployeeTrackingService ) {}
+
+  ngOnInit() {
+    this.registros = this.trackingService.obtenerRegistros();
+
+  }
+
 
   volverAtras() {
     this.location.back();

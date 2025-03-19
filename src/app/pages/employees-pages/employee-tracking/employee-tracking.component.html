@@ -1,30 +1,38 @@
-<h2>📊 Reportes de Empleados</h2>
+<h2>Registro de Datos de Empleados</h2>
 
+<!-- Formulario para cargar nuevos datos -->
+<app-employee-tracking-form></app-employee-tracking-form>
+
+<hr />
+
+<!-- Tabla para visualizar registros previos -->
+<h3>Registros Anteriores</h3>
 <table>
   <thead>
     <tr>
       <th>Empleado</th>
       <th>Fecha</th>
-      <th>Vacaciones</th>
+      <th>Días Vacaciones</th>
       <th>Faltas</th>
       <th>Amonestaciones</th>
       <th>Horas Extras</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let registro of registros">
-      <td>{{ registro.empleadoId }}</td>
+      <td>{{ obtenerNombreEmpleado(registro.empleadoId) }}</td>
       <td>{{ registro.fecha }}</td>
       <td>{{ registro.diasVacaciones }}</td>
       <td>{{ registro.faltas }}</td>
       <td>{{ registro.amonestaciones }}</td>
       <td>{{ registro.horasExtras }}</td>
+      <td>
+        <button (click)="eliminarRegistro(registro.id)">Eliminar</button>
+      </td>
     </tr>
   </tbody>
 </table>
-
-
-
 
 <button class="btn-back" (click)="volverAtras()">⬅ Volver Atrás</button>
 

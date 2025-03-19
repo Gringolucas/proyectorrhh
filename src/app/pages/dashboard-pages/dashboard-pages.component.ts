@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-// import { DashboardGridComponent } from '../../core/components/dashboard-component/dashboard-grid/dashboard-grid.component';
-// import { DashboardHeaderComponent } from '../../core/components/dashboard-component/dashboard-header/dashboard-header.component';
-import { DashboardCardComponent } from '../../core/components/dashboard-component/dashboard-card/dashboard-card.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard-pages',
-  imports: [DashboardCardComponent],
   templateUrl: './dashboard-pages.component.html',
-  styleUrl: './dashboard-pages.component.css'
+  styleUrl: './dashboard-pages.component.css',
+  imports: [
+    CommonModule,
+    RouterModule // 🔹 Asegurar que está importado
+  ]
 })
 export class DashboardPages {
 
