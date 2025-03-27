@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms'; /** AbstractControl: Clase base de cualquier control de formulario (FormControl, FormGroup, etc). */
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  imports: [ReactiveFormsModule]
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, RouterModule]
 })
+
+
 export class RegisterComponent {
   registerForm: FormGroup;
+  registerError: string | null = null;
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.registerForm = this.fb.group({
@@ -19,15 +24,26 @@ export class RegisterComponent {
     });
   }
 
-  onSubmit() {
+  isInvalid(field: string): boolean {
+    const control: AbstractControl | null = this.registerForm.get(field);
+    return !!(control && control.invalid && control.touched);
+  }
+
+  hasError(field: string, error: string): boolean {
+    const control: AbstractControl | null = this.registerForm.get(field);
+    return !!(control && control.hasError(error) && control.touched);
+  }
+
+  onSubmit(): void {
     if (this.registerForm.valid) {
       console.log('Register Data:', this.registerForm.value);
 
-      // Simulación de almacenamiento de usuario registrado
+      // Simulación de registro (podrías llamar a un servicio aquí)
       localStorage.setItem('user', this.registerForm.value.email);
 
-    // Redirigir al Dashboard después del registro
       this.router.navigate(['/dashboard']);
+    } else {
+      this.registerError = 'Por favor completa correctamente todos los campos.';
     }
   }
 }

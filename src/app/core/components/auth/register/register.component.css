@@ -1,24 +1,115 @@
-.auth-form {
-    max-width: 300px;
-    margin: auto;
+body {
+    background: linear-gradient(to right, #f3f4f6, #e0f2fe);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .register-container {
     display: flex;
-    flex-direction: column;
-}
-.auth-form div {
-    margin-bottom: 10px;
-}
-.auth-form input {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .register-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
     width: 100%;
-    padding: 8px;
-}
-.auth-form button {
-    background-color: #28a745;
-    color: white;
+    max-width: 420px;
+  }
+  
+  .register-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1e3a8a;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+  input.is-invalid {
+    border-color: #f87171;
+  }
+  
+  small {
+    color: #ef4444;
+    font-size: 13px;
+  }
+  
+  .alert {
+    color: #fff;
+    background-color: #ef4444;
     padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
     border: none;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
-    margin-top: 10px;
-}
-.auth-form button:disabled {
-    background-color: #cccccc;
-}
+    transition: background 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+  }
+  
+  .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .login-link a {
+    color: #0d47a1;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+
+/* Figuras decorativas */
+.circle {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: rgba(26, 83, 255, 0.1);
+    z-index: 0;
+  }
+  
+  .circle.top-left {
+    top: -40px;
+    left: -40px;
+  }
+  
+  .circle.bottom-right {
+    bottom: -40px;
+    right: -40px;
+  }

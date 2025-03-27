@@ -1,24 +1,120 @@
-.auth-form {
-    max-width: 300px;
-    margin: auto;
+.login-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #f5f8fd;
+  }
+  
+  .login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #183153;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-}
-.auth-form div {
-    margin-bottom: 10px;
-}
-.auth-form input {
-    width: 100%;
-    padding: 8px;
-}
-.auth-form button {
-    background-color: #007bff;
-    color: white;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  input {
     padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+  
+  input.is-invalid {
+    border-color: #e74c3c;
+  }
+  
+  .error small {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    background-color: #1a53ff;
+    color: white;
     border: none;
+    padding: 10px 26px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
-}
-.auth-form button:disabled {
+    transition: background 0.3s ease;
+  }
+  
+  button:disabled {
     background-color: #cccccc;
-}
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #003bb3;
+  }
+  
+  .alert {
+    margin-top: 20px;
+    color: #e74c3c;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Figuras decorativas */
+  .circle {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: rgba(26, 83, 255, 0.1);
+    z-index: 0;
+  }
+  
+  .circle.top-left {
+    top: -40px;
+    left: -40px;
+  }
+  
+  .circle.bottom-right {
+    bottom: -40px;
+    right: -40px;
+  }
+
+  .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .login-link a {
+    color: #0d47a1;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  

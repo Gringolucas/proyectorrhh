@@ -3,6 +3,6 @@
   </ng-container>
   
   <ng-container *ngIf="isLoggedIn">
-    <app-navbar></app-navbar> <!-- Navbar solo cuando esté autenticado -->
+    <app-navbar *ngIf="!esRutaAuth()"></app-navbar> <!-- Navbar solo cuando esté autenticado -->
     <router-outlet></router-outlet> <!-- Renderiza las páginas después de login -->
   </ng-container>
