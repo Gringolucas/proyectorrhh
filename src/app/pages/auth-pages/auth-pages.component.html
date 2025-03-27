@@ -1,7 +1,28 @@
-<div class="welcome-container">
-  <h1>Bienvenido a Nuestro sistema de Recursos Humanos</h1>
-  <p>Por favor, inicia sesión o regístrate para continuar.</p>
-  <button routerLink="/auth/login" (click)="goToLogin()">Iniciar Sesión</button>
-  <button (click)="goToRegister()">Registrarse</button>
+<header class="auth-header">
+  <div class="logo">BPB Recursos Humanos</div>
+</header>
+
+<div class="auth-page">
+  <div class="auth-container">
+    <!-- Imagen -->
+    <div class="auth-image">
+      <img src="assets/auth-assets/paginicio.jpg" alt="Equipo trabajando" />
+    </div>
+
+    <!-- Panel de bienvenida -->
+    <div class="auth-card">
+      <h1>Bienvenido al Sistema de Recursos Humanos</h1>
+      <p class="subtext">
+        Optimiza, gestiona y centraliza los procesos de personal de forma ágil y segura.
+      </p>
+      <p class="quote">"El recurso más importante de una empresa es su gente."</p>
+
+      <div class="auth-buttons">
+        <button routerLink="/auth/login">Iniciar Sesión</button>
+        <button routerLink="/auth/register">Registrarse</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 

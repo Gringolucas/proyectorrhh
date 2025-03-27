@@ -1,36 +1,117 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #f5f9ff, #eef4fb);
+}
+
+/* Header */
+.auth-header {
+  background-color: #ffffffcc;
+  padding: 16px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.auth-header .logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #003366;
+}
+
+/* Layout principal */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+  padding: 40px;
+}
+
 .auth-container {
-    max-width: 350px;
-    margin: auto;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: transparent;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Imagen */
+.auth-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Tarjeta */
+.auth-card {
+  background-color: #ffffff;
+  padding: 48px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  max-width: 550px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.auth-card h1 {
+  font-size: 22px;
+  color: #003366;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.auth-card .subtext {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.auth-card .quote {
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Botones */
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.auth-buttons button {
+  padding: 12px 24px;
+  font-size: 15px;
+  background-color: #2251d9;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: #1a3ebf;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
-  .auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+  .auth-image img {
+    max-width: 100%;
+    height: auto;
   }
-  .auth-form input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .auth-form button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 4px;
-  }
-  .auth-form button:disabled {
-    background-color: #cccccc;
-  }
-  .switch-button {
-    margin-top: 15px;
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-  }
+}
+

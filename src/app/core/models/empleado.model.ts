@@ -1,5 +1,10 @@
-export interface Empleado {
-    id?: string;
+
+
+  export interface IDEmpleado {
+    id: string; 
+  }
+
+  export interface Empleado extends IDEmpleado{
     nombre: string;
     apellido: string;
     cuit: string;
@@ -7,8 +12,7 @@ export interface Empleado {
     salario: number;
   }  
 
-  export interface EmployeeTracking {
-    id: string;
+  export interface EmployeeTracking extends IDEmpleado{
     empleadoId: string;
     fecha: string;
     diasVacaciones: number;
