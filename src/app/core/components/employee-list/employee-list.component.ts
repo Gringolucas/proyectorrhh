@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Empleado } from '../../models/empleado.model';
@@ -10,15 +10,28 @@ import { Empleado } from '../../models/empleado.model';
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent {
-  @Input() empleados: Empleado[] = []; // ✅ Permite recibir empleados desde el padre
+export class EmployeeListComponent implements OnInit {
+  empleados: Empleado[] = [];
+  editandoId: String | null = null;
 
-  eliminarEmpleado(id: string) {
+  ngOnInit(): void {
+    const data = localStorage.getItem('employees');
+    this.empleados = data ? JSON.parse(data) : [];
+  }
+
+  eliminarEmpleado(id: string): void {
     this.empleados = this.empleados.filter(e => e.id !== id);
+    localStorage.setItem('employees', JSON.stringify(this.empleados));
   }
 
-  editarEmpleado(empleado: Empleado) {
-    alert('Empleado actualizado');
+  habilitarEdicion(id: string): void {
+    this.editandoId = id;
   }
+
+  guardarCambios(): void {
+    localStorage.setItem('employees', JSON.stringify(this.empleados));
+    this.editandoId = null;
+  }
+
 }
 

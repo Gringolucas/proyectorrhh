@@ -11,14 +11,25 @@
     </thead>
     <tbody>
       <tr *ngFor="let empleado of empleados">
-        <td><input [(ngModel)]="empleado.nombre"></td>
-        <td><input [(ngModel)]="empleado.apellido"></td>
-        <td><input [(ngModel)]="empleado.cuit"></td>
-        <td><input [(ngModel)]="empleado.puesto"></td>
-        <td><input [(ngModel)]="empleado.salario"></td>
         <td>
-          <button (click)="editarEmpleado(empleado)">💾 Guardar</button>
-          <button (click)="eliminarEmpleado(empleado.id!)" *ngIf="empleado.id">🗑 Eliminar</button>
+          <input [(ngModel)]="empleado.firstName" [readonly]="editandoId !== empleado.id" />
+        </td>
+        <td>
+          <input [(ngModel)]="empleado.lastName" [readonly]="editandoId !== empleado.id" />
+        </td>
+        <td>
+          <input [(ngModel)]="empleado.cuit" [readonly]="editandoId !== empleado.id" />
+        </td>
+        <td>
+          <input [(ngModel)]="empleado.position" [readonly]="editandoId !== empleado.id" />
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="empleado.salary" [readonly]="editandoId !== empleado.id" />
+        </td>
+        <td>
+          <button *ngIf="editandoId !== empleado.id" (click)="habilitarEdicion(empleado.id)">✏️ Modificar</button>
+          <button *ngIf="editandoId === empleado.id" (click)="guardarCambios()">💾 Listo</button>
+          <button (click)="eliminarEmpleado(empleado.id)">🗑️ Eliminar</button>
         </td>
       </tr>
     </tbody>

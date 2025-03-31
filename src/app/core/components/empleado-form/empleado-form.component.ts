@@ -47,7 +47,7 @@ export class EmpleadoComponent implements OnInit {
     console.log('Nuevo empleado a agregar:', nuevoEmpleado); // Debugging
 
     // Llamamos al servicio para agregar el nuevo empleado
-    this.empleadoService.agregarEmpleado(nuevoEmpleado);
+    this.empleadoService.registrarEmpleado(nuevoEmpleado);
 
     // Recargar lista de empleados
     this.empleadoService.obtenerEmpleados().subscribe(data => {

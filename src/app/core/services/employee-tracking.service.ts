@@ -3,23 +3,43 @@ import { Observable, of } from 'rxjs';
 import { EmployeeTracking, Empleado } from '../models/empleado.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class EmployeeTrackingService {
-  private registros: EmployeeTracking[] = [];
+  private readonly STORAGE_KEY = 'tracking';
 
+  // ✅ Obtener todos los registros
+  obtenerRegistros(): Observable<EmployeeTracking[]> {
+    const registros = localStorage.getItem(this.STORAGE_KEY);
+    const data: EmployeeTracking[] = registros ? JSON.parse(registros) : [];
+    return of(data);
+  }
+
+  // ✅ Registrar nuevo registro (guarda en localStorage)
   registrarDatos(nuevoRegistro: EmployeeTracking): Observable<void> {
-    this.registros.push(nuevoRegistro);
+    const registros = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
+    registros.push(nuevoRegistro);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(registros));
     return of();
   }
 
-  obtenerRegistros(): Observable<EmployeeTracking[]> {
-    return of(this.registros);
-  }
-
+  // ✅ Eliminar por ID
   eliminarRegistro(id: string): Observable<void> {
-    this.registros = this.registros.filter(registro => registro.id !== id);
-    return of(); // Simulación de una eliminación exitosa
+    const registros: EmployeeTracking[] = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
+    const actualizados = registros.filter(registro => registro.id !== id);
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(actualizados));
+    return of();
   }
 
+  // ✅ Modificar registro existente
+  actualizarRegistro(registroActualizado: EmployeeTracking): Observable<void> {
+    const registros: EmployeeTracking[] = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
+    const index = registros.findIndex(r => r.id === registroActualizado.id);
+    if (index !== -1) {
+      registros[index] = registroActualizado;
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(registros));
+    }
+    return of();
+  }
 }
+

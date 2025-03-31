@@ -5,15 +5,17 @@
   }
 
   export interface Empleado extends IDEmpleado{
-    nombre: string;
-    apellido: string;
+    firstName: string;
+    lastName: string;
     cuit: string;
-    puesto: string;
-    salario: number;
+    position: string;
+    salary: number;
   }  
 
   export interface EmployeeTracking extends IDEmpleado{
     empleadoId: string;
+    nombre: string;
+    apellido: string;
     fecha: string;
     diasVacaciones: number;
     faltas: number;

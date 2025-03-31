@@ -1,48 +1,85 @@
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding: 40px;
+    background: linear-gradient(to bottom right, #f8f9fd, #eef3ff);
+  }
+  
+  .form-section {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 400px;
+  }
+  
+  h2 {
     text-align: center;
-    color: #333;
+    color: #1e2a78;
     margin-bottom: 20px;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
-}
-
-label {
-    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
     margin-bottom: 5px;
-}
-
-input {
+    color: #333;
+  }
+  
+  .form-group input {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #195ab6;
+  }
+  
+  button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #195ab6;
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 18px;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-}
+    transition: background 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #a3b6d3;
+    cursor: not-allowed;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 16px;
+    text-decoration: none;
+    color: #195ab6;
+    font-weight: 500;
+  }
+  
+  .image-section {
+    margin-left: 60px;
+  }
+  
+  .image-section img {
+    width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
 
-button:hover {
-    background-color: #0056b3;
+  .back-link:hover {
+    cursor: pointer;
 }
+  

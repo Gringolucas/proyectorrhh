@@ -41,7 +41,7 @@ export class EmployeeTrackingComponent implements OnInit {
 
   obtenerNombreEmpleado(empleadoId: string): string {
     const empleado = this.empleados.find(e => e.id === empleadoId);
-    return empleado ? `${empleado.nombre} ${empleado.apellido}` : 'Desconocido';
+    return empleado ? `${empleado.firstName} ${empleado.lastName}` : 'Desconocido';
   }
 
   eliminarRegistro(id: string) {

@@ -1,32 +1,71 @@
-<h2>📅 Registro de Datos Adicionales</h2>
+<div class="tracking-container">
+  <div class="form-section">
+    <h2>Registro de Datos Adicionales</h2>
+    <form [formGroup]="trackingForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Empleado:</label>
+        <select formControlName="employeeId">
+          <option value="">Seleccione</option>
+          <option *ngFor="let employee of employees" [value]="employee.id">
+            {{ employee.firstName }} {{ employee.lastName }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Fecha:</label>
+        <input type="date" formControlName="date" />
+      </div>
+      <div class="form-group">
+        <label>Días de Vacaciones:</label>
+        <input type="number" formControlName="vacationDays" />
+      </div>
+      <div class="form-group">
+        <label>Faltas:</label>
+        <input type="number" formControlName="absences" />
+      </div>
+      <div class="form-group">
+        <label>Amonestaciones:</label>
+        <input type="text" formControlName="warnings" />
+      </div>
+      <div class="form-group">
+        <label>Horas Extras:</label>
+        <input type="number" formControlName="extraHours" />
+      </div>
+      <button type="submit" [disabled]="trackingForm.invalid">Registrar Datos</button>
+    </form>
+    <a routerLink="/dashboard" class="back-link">← Volver Atrás</a>
+  </div>
 
-<form (submit)="registrarDatos()">
-  <label>Empleado:
-    <select [(ngModel)]="nuevoRegistro.empleadoId" required>
-      <option *ngFor="let empleado of empleados" [value]="empleado.id">{{ empleado.nombre }} {{ empleado.apellido }}</option>
-    </select>
-  </label>
+  <div class="table-section">
+    <h3>Registros Anteriores</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Empleado</th>
+          <th>Fecha</th>
+          <th>Vacaciones</th>
+          <th>Faltas</th>
+          <th>Amonestaciones</th>
+          <th>Horas Extras</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{ getEmployeeName(record.employeeId) }}</td>
+          <td>{{ record.date }}</td>
+          <td>{{ record.vacationDays }}</td>
+          <td>{{ record.absences }}</td>
+          <td>{{ record.warnings }}</td>
+          <td>{{ record.extraHours }}</td>
+          <td>
+            <button (click)="editRecord(record)">✏️ Modificar</button>
+            <button (click)="deleteRecord(record.id)">🗑️ Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <label>Fecha:
-    <input type="date" [(ngModel)]="nuevoRegistro.fecha" required />
-  </label>
-
-  <label>Días de Vacaciones:
-    <input type="number" [(ngModel)]="nuevoRegistro.diasVacaciones" />
-  </label>
-
-  <label>Faltas:
-    <input type="number" [(ngModel)]="nuevoRegistro.faltas" />
-  </label>
-
-  <label>Amonestaciones:
-    <input type="number" [(ngModel)]="nuevoRegistro.amonestaciones" />
-  </label>
-
-  <label>Horas Extras:
-    <input type="number" [(ngModel)]="nuevoRegistro.horasExtras" />
-  </label>
-
-  <button type="submit">Registrar Datos</button>
-</form>
 
